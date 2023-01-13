@@ -13,10 +13,12 @@ By enhancing it, we can create a full video call system with bi-way audio and vi
 4. Once the binding is done, the server starts listening using listen() method has a backlog parameter. It specifies the number of unaccepted connections that the system will allow before refusing new connections. In this case, it can have 5 connections at most.
 5. Then, the establishment of the connection between the client and server takes place, using accept() method
 6. Now, if some client XYZ is available, then the video stream will start on the Server using OpenCV
-7. After that each frame (also known as an image) will be converted to a pickle object
-8. Then that pickle object is further converted to some binary type of string representations, it is achieved using the pack() method of the Struct module which can convert Python values to C structs and vice-versa.
-9. Finally the buffer (the packet) is sent using the sendall() method
-10. From step 5, the process is repeated again and again till the time client or server exits or some exception happens.
+7. After that each frame (also known as an image) will be converted to a pickle object using the dump() method, which creates a byte stream, which is required by the receiver.
+8. Also, the calculation of the length of the byte stream (pickle object) is performed using the len() method.
+9. Then the calculated length (in int) is converted to bytes using the pack() method of the Struct module which can convert Python values to C structs and vice-versa.
+10. Then message packet is created as struct.pack("Q", len(a)) + a [note both are byte stream, where first 8 bytes is length of the message and after that message is appended, that is '+ a' ] 
+11. Finally the packet (message/video) is sent using the sendall() method
+12. From step 5, the process is repeated again and again till the time client or server exits or some exception happens.
 
 ## Reciever [or Client]
 1. Creation of Socket Object
@@ -29,34 +31,19 @@ By enhancing it, we can create a full video call system with bi-way audio and vi
 
 ### Python Modules used:
 
-
 ### Softwares Used 
 - Spyder 5.0.3
 - CMD
 - Git Bash
-- Heroku
 
 ### OS Used:
 - Windows 10 
 
 ## Features  
-- sentiment analysis
-- word cloud
-- summary
-- word count
-- char count
-- line count
-- finding a specific word
+
 
 ## Setting up on local machine: 
 1. Clone this repo on your system.
-2. Open CMD
-3. Install all the dependencies using requirements.txt:
-	<pre> pip install requirements.txt </pre>
-3. Run the following command:
-	<pre> streamlit run text_analyzer.py </pre>
-
-
 
 # Thank you
 - Thank you all for using my app.
