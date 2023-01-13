@@ -6,7 +6,11 @@ By enhanching it, we cah create a full video call system wih bi-way audio and vi
 
 # Working
 
-## Sender [or Client]
+## Sender [or Server]
+1. 
+2. 
+
+## Reciever [or Client]
 1. Creation of Socket Object
 2. Reciever's IP address (Server) is taken as input
 3. Then connections is established which connects a TCP based client socket to a TCP based server socket. 
