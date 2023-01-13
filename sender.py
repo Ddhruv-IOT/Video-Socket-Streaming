@@ -10,11 +10,24 @@ import cv2
 import pickle
 import struct
 
+def get_ip_address():
+  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+  s.connect(("8.8.8.8", 80))
+  return s.getsockname()[0]
+
+
 # Socket creation
 cln_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host_ip = input(
-    "Kindly input server Ip address \nEx: 192.168.99.1 \nYour Input: ")
+    "Kindly input server Ip address \nEx: 192.168.99.1 \nif same as server hit 'y' and enter \nYour Input: ")
+
+
+if host_ip == "y":
+    host_ip = get_ip_address()
+
+
+print(f"Reciever IP {host_ip}")
 port = 9999
 socket_address = (host_ip, port)
 
