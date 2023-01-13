@@ -20,7 +20,7 @@ def get_ip_address():
 ser_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host_ip = get_ip_address()
-print(f"Host IP: {host_ip}")
+print(f"Server IP Address: {host_ip}")
 
 port = 9999
 socket_address = (host_ip, port)
@@ -28,12 +28,12 @@ socket_address = (host_ip, port)
 ser_sock.bind(socket_address)
 ser_sock.listen(5)
 
-print(f"Listening at {ser_sock}")
+print(f"Server Serving at {ser_sock}")
 
 while 1:
     client, addr = ser_sock.accept()
 
-    print(f"Connected to {addr}")
+    print(f"Connected to Client@{addr}")
     if client:
         vid = cv2.VideoCapture(1)
         while(vid.isOpened()):
