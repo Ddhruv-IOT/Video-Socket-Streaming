@@ -10,11 +10,15 @@ import cv2
 import pickle
 import struct
 
+def get_ip_address():
+  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+  s.connect(("8.8.8.8", 80))
+  return s.getsockname()[0]
+
 # Socket creation
 ser_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-host = socket.gethostname()
-host_ip = socket.gethostbyname(host)
+host_ip = get_ip_address()
 print(f"Host IP: {host_ip}")
 
 port = 9999
