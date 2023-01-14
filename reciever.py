@@ -22,7 +22,7 @@ def get_ip_address():
 cln_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host_ip = input(
-    "Kindly input server Ip address \nEx: 192.168.99.1 \nif same as server hit 'y' and enter \nYour Input: ")
+    f"Kindly input server Ip address \nEx:{get_ip_address()} \nif same as server hit 'y' and enter \nYour Input: ")
 
 
 if host_ip == "y":
