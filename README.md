@@ -45,6 +45,7 @@ With some customizations and enhancements, it can be used to develop a video cal
 - Spyder 5.0.3
 - CMD
 - Git Bash
+- Oracle VM VirtualBox
 
 ### OS Used:
 - Windows 10 
@@ -54,6 +55,7 @@ With some customizations and enhancements, it can be used to develop a video cal
 - Live video streaming over LAN, using socket programming in python
 
 ## Demo Video: 
+<p align="center"> <img src="https://github.com/Ddhruv-IOT/Video-Socket-Streaming/blob/main/demo/demo.gif" alt="animated" /> </p>
 
 # Thank you
 - Thank you all for using my app.
